@@ -10,11 +10,13 @@ const path = require('path');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
+require('dotenv').config()
+
+console.log(process.env.ACCESS_TOKEN)
 
 // Api.ai initialization
-const access_token = '7d25544f8082473898afacb2f74c7bd3';
 const session_id = 'session_id';
-const apiai = require('apiai')(access_token);
+const apiai = require('apiai')(process.env.ACCESS_TOKEN);
 
 io.on('connection', (socket) => {
     socket.emit('chat-message', 'Welcome! ')
