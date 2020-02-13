@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat app</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        body {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    #message-container {
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    #message-container div {
+      background-color: #CCC;
+      padding: 5px;
+    }
+
+    #message-container div:nth-child(2n) {
+      background-color: #FFF;
+    }
+
+    #send-box {
+      position: fixed;
+      padding-bottom: 30px;
+      bottom: 0;
+      background-color: white;
+      max-width: 1200px;
+      width: 80%;
+      display: flex;
+      
+    }
+
+    #input-message {
+      flex-grow: 1;
+      border: 1px solid black;
+    }
+
+    #send-button {
+        background: none;
+        color: black;
+        outline: black;
+        border: 1px solid black;
+    }
+
+    </style>
+    
+</head>
+<body>
+    <div id="message-container"></div>
+
+    <form id="send-box" action="/chat" method="GET">
+        <input type="text" id="input-message">
+        <button type="submit" id="send-button">Send</button>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="chat.js"></script>
+</body>
+</html>
